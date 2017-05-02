@@ -3,9 +3,9 @@
 
     app.factory('apiService', apiService);
 
-    apiService.$inject = ['$http', '$location', 'notificationService', '$rootScope'];
+    apiService.$inject = ['$http'];
 
-    function apiService($http, $location, notificationService, $rootScope) {
+    function apiService($http) {
         var service = {
             get: get,
         };

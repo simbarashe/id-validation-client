@@ -2,11 +2,11 @@
     <div class="panel panel-default">
         <div class="panel-heading">Validate ID</div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" novalidate angular-validator id="IDValidation" name="IDValidation" angular-validator-submit="validate()">
+            <form class="form-horizontal" novalidate angular-validator id="validationForm" name="validationForm" angular-validator-submit="validate()">
                 <div class=" form-group ">
                     <label class="col-sm-3 control-label ">South African ID No.</label>
                     <div class="col-sm-9 ">
-                        <input class="form-control " name="identifier " type="text " ng-model="identification.identifier " placeholder="South African ID Number " required required-message=" 'A South African ID number is required' ">
+                        <input class="form-control" validate-on="dirty" name="identifier " type="text " ng-model="identification.identifier " placeholder="South African ID Number " required required-message=" 'A South African ID number is required' ">
                     </div>
                 </div>
 
@@ -44,5 +44,3 @@
         </div>
     </div>
 </div>
-<pre><code>{{ identification }}</code></pre>
-<pre><code>{{ identifications }}</code></pre>

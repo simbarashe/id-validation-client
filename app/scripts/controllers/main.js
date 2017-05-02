@@ -3,12 +3,14 @@
 
     app.controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['$scope', '$location', '$filter', 'apiService', 'notificationService'];
+    MainCtrl.$inject = ['$scope', '$filter', 'apiService', 'notificationService'];
 
-    function MainCtrl($scope, $location, $filter, apiService, notificationService) {
+    function MainCtrl($scope, $filter, apiService, notificationService) {
         $scope.identification = {};
         $scope.identifications = [];
         $scope.validate = validate;
+        $scope.succeded = succeded;
+        $scope.failed = failed;
 
         function validate() {
             apiService.get('http://localhost:3366/api/identification/validate/' + $scope.identification.identifier, null,
@@ -21,7 +23,9 @@
             if (results.length === 0) {
                 $scope.identifications.push(response.data);
             }
-            $scope.IDValidation.reset();
+
+            $scope.identification = {};
+            $scope.validationForm.reset();
         }
 
         function failed(response) {
